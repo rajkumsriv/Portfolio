@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <motion.main
@@ -17,18 +18,31 @@ export default function Contact() {
           Contact Me
         </h1>
 
-        {!submitted ? (
+        {!submitted && !error ? (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               const formData = new FormData(e.target);
-              fetch("https://formspree.io/f/mrgnqrpj", {
-                method: "POST",
-                body: formData,
-                headers: { Accept: "application/json" },
-              }).then((res) => {
-                if (res.ok) setSubmitted(true);
-              });
+
+              try {
+                const res = await fetch("https://formspree.io/f/xdkelkny", {
+                  method: "POST",
+                  body: formData,
+                  headers: { Accept: "application/json" },
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                  setSubmitted(true);
+                } else {
+                  console.error("Form error:", data);
+                  setError(true);
+                }
+              } catch (err) {
+                console.error("Submission failed:", err);
+                setError(true);
+              }
             }}
             className="bg-[#112240] p-6 rounded-lg space-y-4"
           >
@@ -60,9 +74,13 @@ export default function Contact() {
               Send Message
             </button>
           </form>
-        ) : (
+        ) : submitted ? (
           <div className="bg-[#112240] p-6 rounded-lg text-center text-green-400 font-semibold">
             ✅ Thank you! Your message has been sent.
+          </div>
+        ) : (
+          <div className="bg-[#112240] p-6 rounded-lg text-center text-red-400 font-semibold">
+            ❌ Something went wrong. Please try again later.
           </div>
         )}
       </div>
