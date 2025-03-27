@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Blog() {
   return (
     <main className="min-h-screen bg-[#0A192F] text-white px-4 py-12">
@@ -16,9 +18,9 @@ export default function Blog() {
               Learn how to build custom detection rules using Splunk and QRadar
               that reduce false positives and improve alert fidelity...
             </p>
-            <a href="#" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
+            <Link href="/blog/siem-detection" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
               Read more →
-            </a>
+            </Link>
           </div>
 
           {/* Blog Post 2 */}
@@ -29,9 +31,9 @@ export default function Blog() {
             <p className="text-gray-300">
               A practical guide comparing data ingestion, rule engine, and search performance across two major SIEM platforms.
             </p>
-            <a href="#" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
+            <Link href="/blog/chronicle-vs-qradar" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
               Read more →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

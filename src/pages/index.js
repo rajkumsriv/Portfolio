@@ -59,36 +59,24 @@ export default function Home() {
         </div>
 
         {/* Page Links */}
-        <div className="mt-8 space-y-2">
+        <div className="mt-8 space-y-2 text-teal-400 underline hover:text-teal-200">
           <div>
-            <Link href="/experience" className="text-teal-400 underline hover:text-teal-200">
-              View My Experience →
-            </Link>
+            <Link href="/experience">View My Experience →</Link>
           </div>
           <div>
-            <Link href="/skills" className="text-teal-400 underline hover:text-teal-200">
-              View My Skills →
-            </Link>
+            <Link href="/skills">View My Skills →</Link>
           </div>
           <div>
-            <Link href="/certifications" className="text-teal-400 underline hover:text-teal-200">
-              View My Certifications →
-            </Link>
+            <Link href="/certifications">View My Certifications →</Link>
           </div>
           <div>
-            <Link href="/projects" className="text-teal-400 underline hover:text-teal-200">
-              View My Projects →
-            </Link>
+            <Link href="/projects">View My Projects →</Link>
           </div>
           <div>
-            <Link href="/education" className="text-teal-400 underline hover:text-teal-200">
-              View My Education →
-            </Link>
+            <Link href="/education">View My Education →</Link>
           </div>
           <div>
-            <Link href="/contact" className="text-teal-400 underline hover:text-teal-200">
-              Contact Me →
-            </Link>
+            <Link href="/contact">Contact Me →</Link>
           </div>
         </div>
       </div>
