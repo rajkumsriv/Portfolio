@@ -1,15 +1,20 @@
+// src/pages/skills.js
+import { motion } from "framer-motion";
+
 export default function Skills() {
   return (
-    <main className="min-h-screen bg-[#0A192F] text-white px-4 py-12">
+    <motion.main
+      className="min-h-screen bg-[#0A192F] text-white px-4 py-12"
+      initial={{ y: 30 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+    >
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-teal-400 mb-10 text-center">
           Key Skills
         </h1>
 
-        {/* Skill Categories */}
         <div className="grid md:grid-cols-2 gap-10">
-
-          {/* SIEM Solutions */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">SIEM Solutions</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -19,7 +24,6 @@ export default function Skills() {
             </ul>
           </div>
 
-          {/* EDR / AV */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">EDR / Antivirus</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -29,7 +33,6 @@ export default function Skills() {
             </ul>
           </div>
 
-          {/* Security Domains */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">Security Domains</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -40,7 +43,6 @@ export default function Skills() {
             </ul>
           </div>
 
-          {/* Compliance */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">Compliance & Frameworks</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -50,7 +52,6 @@ export default function Skills() {
             </ul>
           </div>
 
-          {/* Tools */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">Security Tools</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -61,7 +62,6 @@ export default function Skills() {
             </ul>
           </div>
 
-          {/* Others */}
           <div>
             <h2 className="text-xl font-semibold text-blue-400 mb-2">Other Skills</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -70,9 +70,8 @@ export default function Skills() {
               <li>Security Awareness Training</li>
             </ul>
           </div>
-
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }

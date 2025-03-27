@@ -1,8 +1,14 @@
-import Link from "next/link";
+// src/pages/blog.js
+import { motion } from "framer-motion";
 
 export default function Blog() {
   return (
-    <main className="min-h-screen bg-[#0A192F] text-white px-4 py-12">
+    <motion.main
+      className="min-h-screen bg-[#0A192F] text-white px-4 py-12"
+      initial={{ y: 30 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+    >
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-teal-400 mb-10 text-center">
           Blog
@@ -15,12 +21,14 @@ export default function Blog() {
               How to Fine-Tune Threat Detection in SIEM
             </h2>
             <p className="text-gray-300">
-              Learn how to build custom detection rules using Splunk and QRadar
-              that reduce false positives and improve alert fidelity...
+              Learn how to build custom detection rules using Splunk and QRadar that reduce false positives and improve alert fidelity...
             </p>
-            <Link href="/blog/siem-detection" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
+            <a
+              href="#"
+              className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block"
+            >
               Read more →
-            </Link>
+            </a>
           </div>
 
           {/* Blog Post 2 */}
@@ -31,12 +39,15 @@ export default function Blog() {
             <p className="text-gray-300">
               A practical guide comparing data ingestion, rule engine, and search performance across two major SIEM platforms.
             </p>
-            <Link href="/blog/chronicle-vs-qradar" className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block">
+            <a
+              href="#"
+              className="text-teal-400 underline hover:text-teal-300 mt-2 inline-block"
+            >
               Read more →
-            </Link>
+            </a>
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }

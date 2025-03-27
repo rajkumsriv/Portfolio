@@ -1,82 +1,54 @@
+// src/pages/certifications.js
 import { motion } from "framer-motion";
 
-export default function Experience() {
+export default function Certifications() {
   return (
     <motion.main
       className="min-h-screen bg-[#0A192F] text-white px-4 py-12"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      initial={{ y: 30 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-teal-400 mb-10 text-center">
-          Professional Experience
+          Certifications
         </h1>
 
-        {/* TCS */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-blue-400">
-            Tata Consultancy Services (TCS)
-          </h2>
-          <p className="text-sm text-gray-400 mb-2">
-            Information Security Lead | May 2019 – Present
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-300">
-            <li>
-              Leading a 20-member cybersecurity team managing SOC, Vulnerability
-              Management, Endpoint Security, and PKI.
-            </li>
-            <li>
-              Implemented and managed SIEM tools (QRadar, Splunk, Chronicle) for
-              real-time monitoring and incident response.
-            </li>
-            <li>
-              Strengthened endpoint security using CrowdStrike, Microsoft
-              Defender, and McAfee ePO.
-            </li>
-            <li>
-              Handled email security and phishing training via Proofpoint and
-              KnowBe4.
-            </li>
-            <li>
-              Led risk management initiatives and ensured compliance with GDPR
-              and internal audit requirements.
-            </li>
-            <li>
-              Acted as a primary cybersecurity contact for key clients,
-              delivering reports and dashboards for leadership.
-            </li>
-          </ul>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">SC-200</h2>
+            <p className="text-gray-400">Microsoft Certified Security Analyst Associate (2022)</p>
+          </div>
 
-        {/* Wipro */}
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-400">
-            Wipro Technologies
-          </h2>
-          <p className="text-sm text-gray-400 mb-2">
-            Senior Security Analyst | Sep 2011 – Apr 2019
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-300">
-            <li>
-              Monitored SIEM environments using QRadar and Splunk to detect and
-              respond to cyber threats.
-            </li>
-            <li>
-              Conducted forensic investigations, phishing analysis, and
-              implemented countermeasures.
-            </li>
-            <li>
-              Collaborated with teams to remediate vulnerabilities and improve
-              compliance posture.
-            </li>
-            <li>
-              Authored SOPs and Playbooks to standardize security operations.
-            </li>
-            <li>
-              Maintained risk registers and ensured ISO 27001 & NIST adherence.
-            </li>
-          </ul>
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">SC-900</h2>
+            <p className="text-gray-400">Microsoft Azure Fundamentals (2022)</p>
+          </div>
+
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">CEH</h2>
+            <p className="text-gray-400">EC-Council Certified Ethical Hacker (2017)</p>
+          </div>
+
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">ECSA</h2>
+            <p className="text-gray-400">EC-Council Certified Security Analyst (2018)</p>
+          </div>
+
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">Splunk</h2>
+            <p className="text-gray-400">Splunk Certified Power User (2017)</p>
+          </div>
+
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
+            <h2 className="text-xl font-semibold text-blue-300 mb-1">QRadar</h2>
+            <p className="text-gray-400">IBM QRadar Certified Analyst (2018)</p>
+          </div>
+
+          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-yellow-400/40 transition">
+            <h2 className="text-xl font-semibold text-yellow-300 mb-1">CISSP (In Progress)</h2>
+            <p className="text-gray-400">Expected Dec 2024</p>
+          </div>
         </div>
       </div>
     </motion.main>
