@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -41,12 +42,12 @@ export default function Home() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a
+          <Link
             href="/contact"
-            className="bg-teal-500 hover:bg-teal-600 text-white px-6 py-2 rounded-md font-medium"
+            className="bg-teal-500 hover:bg-teal-600 text-white px-6 py-2 rounded-md font-medium text-center"
           >
             Contact Me
-          </a>
+          </Link>
           <a
             href="/RajnishSrivastava_Resume.pdf"
             target="_blank"
@@ -60,52 +61,34 @@ export default function Home() {
         {/* Page Links */}
         <div className="mt-8 space-y-2">
           <div>
-            <a
-              href="/experience"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/experience" className="text-teal-400 underline hover:text-teal-200">
               View My Experience →
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="/skills"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/skills" className="text-teal-400 underline hover:text-teal-200">
               View My Skills →
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="/certifications"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/certifications" className="text-teal-400 underline hover:text-teal-200">
               View My Certifications →
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="/projects"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/projects" className="text-teal-400 underline hover:text-teal-200">
               View My Projects →
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="/education"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/education" className="text-teal-400 underline hover:text-teal-200">
               View My Education →
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="/contact"
-              className="text-teal-400 underline hover:text-teal-200"
-            >
+            <Link href="/contact" className="text-teal-400 underline hover:text-teal-200">
               Contact Me →
-            </a>
+            </Link>
           </div>
         </div>
       </div>
