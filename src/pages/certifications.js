@@ -1,53 +1,96 @@
 // src/pages/certifications.js
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+const certifications = [
+  {
+    id: "SC-200",
+    name: "SC-200",
+    subtitle: "Microsoft Certified Security Analyst Associate (2022)",
+    image: "/certificates/sc-200.jpg",
+  },
+  {
+    id: "SC-900",
+    name: "SC-900",
+    subtitle: "Microsoft Azure Fundamentals (2022)",
+    image: "/certificates/sc-900.jpg",
+  },
+  {
+    id: "CEH",
+    name: "CEH",
+    subtitle: "EC-Council Certified Ethical Hacker (2017)",
+    image: "/certificates/ceh.jpg",
+  },
+  {
+    id: "ECSA",
+    name: "ECSA",
+    subtitle: "EC-Council Certified Security Analyst (2018)",
+    image: "/certificates/ecsa.jpg",
+  },
+  {
+    id: "Splunk",
+    name: "Splunk",
+    subtitle: "Splunk Certified Power User (2017)",
+    image: "/certificates/splunk.jpg",
+  },
+  {
+    id: "QRadar",
+    name: "QRadar",
+    subtitle: "IBM QRadar Certified Analyst (2018)",
+    image: "/certificates/qradar.jpg",
+  },
+  {
+    id: "CISSP",
+    name: "CISSP (In Progress)",
+    subtitle: "Expected Apr 2025",
+    image: "/certificates/cissp.jpg",
+  },
+];
+
 export default function Certifications() {
+  const [active, setActive] = useState(certifications[0]);
+
   return (
     <motion.main
-      className="min-h-screen bg-[#0A192F] text-white px-4 py-12"
+      className="min-h-screen bg-[#0A192F] text-white px-6 py-12"
       initial={{ y: 30 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.9, ease: "easeOut" }}
     >
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-teal-400 mb-10 text-center">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-teal-400 mb-12 text-center">
           Certifications
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">SC-200</h2>
-            <p className="text-gray-400">Microsoft Certified Security Analyst Associate (2022)</p>
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Tabs */}
+          <div className="md:w-1/4 space-y-2">
+            {certifications.map((cert) => (
+              <button
+                key={cert.id}
+                onClick={() => setActive(cert)}
+                className={`w-full text-left px-4 py-3 rounded-lg transition font-semibold ${
+                  active.id === cert.id
+                    ? "bg-teal-500 text-white"
+                    : "bg-[#112240] text-gray-300 hover:bg-teal-600/30"
+                }`}
+              >
+                {cert.name}
+              </button>
+            ))}
           </div>
 
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">SC-900</h2>
-            <p className="text-gray-400">Microsoft Azure Fundamentals (2022)</p>
-          </div>
-
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">CEH</h2>
-            <p className="text-gray-400">EC-Council Certified Ethical Hacker (2017)</p>
-          </div>
-
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">ECSA</h2>
-            <p className="text-gray-400">EC-Council Certified Security Analyst (2018)</p>
-          </div>
-
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">Splunk</h2>
-            <p className="text-gray-400">Splunk Certified Power User (2017)</p>
-          </div>
-
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-teal-400/40 transition">
-            <h2 className="text-xl font-semibold text-blue-300 mb-1">QRadar</h2>
-            <p className="text-gray-400">IBM QRadar Certified Analyst (2018)</p>
-          </div>
-
-          <div className="bg-[#112240] p-6 rounded-lg shadow-md hover:shadow-yellow-400/40 transition">
-            <h2 className="text-xl font-semibold text-yellow-300 mb-1">CISSP (In Progress)</h2>
-            <p className="text-gray-400">Expected Dec 2024</p>
+          {/* Certificate Display */}
+          <div className="md:w-3/4 bg-[#112240] rounded-xl shadow-lg p-6">
+            <h2 className="text-3xl font-bold text-blue-400 mb-2">
+              {active.name}
+            </h2>
+            <p className="text-lg text-gray-400 mb-6">{active.subtitle}</p>
+            <img
+              src={active.image}
+              alt={active.name}
+              className="w-full max-h-[600px] object-contain rounded-lg shadow-md"
+            />
           </div>
         </div>
       </div>

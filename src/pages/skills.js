@@ -10,66 +10,60 @@ export default function Skills() {
       transition={{ duration: 0.9, ease: "easeOut" }}
     >
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-teal-400 mb-10 text-center">
-          Key Skills
+        <h1 className="text-4xl font-bold text-teal-400 mb-12 text-center">
+          🛡️ Key Cybersecurity Skills
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">SIEM Solutions</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Splunk</li>
-              <li>QRadar</li>
-              <li>Google Chronicle</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">EDR / Antivirus</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>CrowdStrike</li>
-              <li>Microsoft Defender</li>
-              <li>McAfee ePO</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">Security Domains</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Email Security</li>
-              <li>Network Security</li>
-              <li>Cloud Security</li>
-              <li>Risk & Vulnerability Management</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">Compliance & Frameworks</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>GDPR</li>
-              <li>ISO 27001</li>
-              <li>NIST</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">Security Tools</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Proofpoint</li>
-              <li>KnowBe4</li>
-              <li>Netskope</li>
-              <li>OSQuery</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-blue-400 mb-2">Other Skills</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Process Improvement</li>
-              <li>Project Management</li>
-              <li>Security Awareness Training</li>
-            </ul>
-          </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "SIEM Solutions",
+              items: ["Splunk", "QRadar", "Google Chronicle"],
+            },
+            {
+              title: "EDR / Antivirus",
+              items: ["CrowdStrike", "Microsoft Defender", "McAfee ePO"],
+            },
+            {
+              title: "Security Domains",
+              items: [
+                "Email Security",
+                "Network Security",
+                "Cloud Security",
+                "Risk & Vulnerability Management",
+              ],
+            },
+            {
+              title: "Compliance & Frameworks",
+              items: ["GDPR", "ISO 27001", "NIST"],
+            },
+            {
+              title: "Security Tools",
+              items: ["Proofpoint", "KnowBe4", "Netskope", "OSQuery"],
+            },
+            {
+              title: "Other Skills",
+              items: [
+                "Process Improvement",
+                "Project Management",
+                "Security Awareness Training",
+              ],
+            },
+          ].map((section, index) => (
+            <div
+              key={index}
+              className="bg-[#112240] p-6 rounded-xl shadow-md hover:shadow-teal-500/30 transition-shadow"
+            >
+              <h2 className="text-xl font-semibold text-blue-400 mb-3">
+                {section.title}
+              </h2>
+              <ul className="list-disc list-inside text-gray-300 space-y-1 pl-2">
+                {section.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </motion.main>

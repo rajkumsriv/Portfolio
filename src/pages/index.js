@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <motion.main
       className="relative min-h-screen flex items-center justify-center bg-[#0A192F] text-white px-4 overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      initial={{ y: 30 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
     >
       <>
         <div className="absolute top-0 left-0 z-0 p-8">
@@ -36,15 +36,9 @@ export default function Home() {
 
       {/* Content Overlay */}
       <div className="relative z-10 w-full text-center">
-        {/* Animated Name */}
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-4 text-blue-400"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
           Rajnish Kumar Srivastava
-        </motion.h1>
+        </h1>
 
         <h2 className="text-2xl md:text-3xl mb-6 text-teal-300">
           Information Security Lead | SOC & Cybersecurity Expert
