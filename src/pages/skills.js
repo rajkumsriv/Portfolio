@@ -4,23 +4,85 @@ import { motion } from "framer-motion";
 
 const skillSections = [
   {
-    title: "SIEM Solutions",
-    items: ["Splunk", "QRadar", "Google Chronicle"],
-  },
-  
-  {
     title: "Cybersecurity Skills",
     items: [
       "Security Incident Management",
-	  "Security Information & Event Management",
-	  "Endpoint security",
+      "Security Information & Event Management",
+      "Endpoint security",
       "Email Security",
       "Network Security",
       "Vulnerability Management",
-	  "Data Loss Prevention",
+      "Data Loss Prevention",
       "Risk Assessment and Mitigation",
       "Security Awareness Training",
-      
+    ],
+  },
+  {
+    title: "SIEM Solutions",
+    items: [
+      { name: "Splunk", image: "skills/splunk.png" },
+      { name: "QRadar", image: "skills/qradar.png" },
+      { name: "Google SecOps", image: "skills/google_secops.png" },
+    ],
+  },
+  {
+    title: "Tools & Solutions",
+    items: [
+      {
+        category: "Security Information and Event Management",
+        tools: [
+          { name: "Splunk", image: "skills/splunk.png" },
+          { name: "QRadar", image: "skills/qradar.png" },
+          { name: "Google SecOps", image: "skills/google_secops.png" },
+        ],
+      },
+      {
+        category: "Endpoint Security",
+        tools: [
+          { name: "Microsoft Defender for Endpoint", image: "skills/mde.png" },
+          { name: "McAfee ePO", image: "skills/mcafee_epo.png" },
+          { name: "CrowdStrike", image: "skills/crowdstrike.png" },
+        ],
+      },
+      {
+        category: "Vulnerability Management",
+        tools: [
+          { name: "Rapid-7 Insight VM", image: "skills/insight_vm.png" },
+          { name: "Microsoft Defender for Endpoint", image: "skills/mde.png" },
+          { name: "Tanium", image: "skills/tanium.png" },
+        ],
+      },
+      {
+        category: "Network Security",
+        tools: [
+          { name: "Zscaler", image: "skills/zscaler.jpeg" },
+          { name: "Netskope", image: "skills/netskope.png" },
+        ],
+      },
+      {
+        category: "Dark Web Monitoring",
+        tools: [
+          { name: "Kela Radark", image: "skills/kela.png" },
+        ],
+      },
+      {
+        category: "Brand Monitoring",
+        tools: [
+          { name: "ZeroFox", image: "skills/zerofox.png" },
+        ],
+      },
+      {
+        category: "GRC",
+        tools: [
+          { name: "RSA Archer", image: "skills/rsa_archer.jpeg" },
+        ],
+      },
+      {
+        category: "Security Awareness Training",
+        tools: [
+          { name: "KnowBe4", image: "skills/knowbe4.jpeg" },
+        ],
+      },
     ],
   },
   {
@@ -28,54 +90,128 @@ const skillSections = [
     items: ["GDPR", "ISO 27001", "NIST"],
   },
   {
-    title: "Tools & Solutions",
-    items: [
-      "QRadar",
-	  "Splunk",
-	  "Google Chronicle",
-	  "Microsoft Defender for Endpoint",
-	  "CrowdStrike",
-	  "McAfee ePO",
-      "RSA Archer",
-      "KnowBe4",
-      "Netskope",
-      "Zscaler",
-      "ZeroFox",
-      "Kela Radark",
-      "Rapid7 - Insight VM",
-      "Tanium",
-    ],
-  },
-  {
     title: "Management Skills",
     items: [
       "Process Improvement",
       "Project Management",
       "People Management",
-	  "Vendor & Third-Party Risk Management",
+      "Vendor & Third-Party Risk Management",
       "IT Service Management",
-	  "Cross-Functional Collaboration",
-	  "Stakeholder Communication",
+      "Cross-Functional Collaboration",
+      "Stakeholder Communication",
     ],
   },
   {
     title: "Foundational Skills",
-    items: ["Analytical", "Problem Solving", "Communication", "Attention to Details", "Adaptibility", "Learning Mindset"],
+    items: [
+      "Analytical",
+      "Problem Solving",
+      "Communication",
+      "Attention to Details",
+      "Adaptibility",
+      "Learning Mindset",
+    ],
   },
 ];
 
 export default function Skills() {
   const [selectedTab, setSelectedTab] = useState(null);
+  const [toolCategoryIndex, setToolCategoryIndex] = useState(0);
 
-  const handleBack = () => setSelectedTab(null);
+  const handleBack = () => {
+    setToolCategoryIndex(0);
+    setSelectedTab(null);
+  };
+
   const handlePrev = () =>
-    setSelectedTab((prev) =>
-      prev > 0 ? prev - 1 : skillSections.length - 1
-    );
+    setSelectedTab((prev) => (prev > 0 ? prev - 1 : skillSections.length - 1));
+
   const handleNext = () =>
-    setSelectedTab((prev) =>
-      prev < skillSections.length - 1 ? prev + 1 : 0
-    );
+    setSelectedTab((prev) => (prev < skillSections.length - 1 ? prev + 1 : 0));
+
+  const handleToolCategoryChange = (direction) => {
+    setToolCategoryIndex((prev) => {
+      const max = skillSections[2].items.length - 1;
+      if (direction === "prev") return prev > 0 ? prev - 1 : max;
+      if (direction === "next") return prev < max ? prev + 1 : 0;
+      return prev;
+    });
+  };
+
+  const renderItems = (items) => {
+    const isSIEMSection = selectedTab === 1;
+    const isToolsSection = selectedTab === 2;
+
+    if (isSIEMSection) {
+      return (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="w-60 h-60 rounded-full overflow-hidden bg-white flex items-center justify-center shadow">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-40 h-40 object-contain"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (isToolsSection) {
+      const group = items[toolCategoryIndex];
+      return (
+        <div className="relative">
+          <h3 className="text-xl text-teal-400 font-bold mb-6 text-center">
+            {group.category}
+          </h3>
+          <div className="flex justify-center items-center gap-4">
+            <button
+              onClick={() => handleToolCategoryChange("prev")}
+              className="text-6xl font-bold text-white bg-[#1e293b] p-4 rounded-full hover:bg-[#334155]"
+            >
+              &#60;
+            </button>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {group.tools.map((tool, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-60 h-60 rounded-full overflow-hidden bg-white flex items-center justify-center shadow">
+                    <img
+                      src={tool.image}
+                      alt={tool.name}
+                      className="w-40 h-40 object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => handleToolCategoryChange("next")}
+              className="text-6xl font-bold text-white bg-[#1e293b] p-4 rounded-full hover:bg-[#334155]"
+            >
+              &#62;
+            </button>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <ul className="list-disc list-inside text-gray-300 space-y-2 pl-2">
+          {items.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+  };
 
   return (
     <motion.main
@@ -90,13 +226,12 @@ export default function Skills() {
         </h1>
 
         {selectedTab === null ? (
-          // First Level Navigation: Tabs
           <div className="grid md:grid-cols-2 gap-6">
             {skillSections.map((section, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedTab(index)}
-                className="bg-[#112240] hover:bg-[#1a2d45] transition-colors p-6 rounded-xl text-left shadow-md hover:shadow-teal-500/30"
+                className="px-16 py-8 text-xl font-semibold bg-[#112240] hover:bg-[#1a2d45] transition-colors p-6 rounded-xl text-left shadow-md hover:shadow-teal-500/30"
               >
                 <h2 className="text-xl font-semibold text-white">
                   {section.title}
@@ -105,7 +240,6 @@ export default function Skills() {
             ))}
           </div>
         ) : (
-          // Second Level Navigation: Content View
           <>
             <div className="flex justify-between items-center mb-4">
               <button
@@ -134,11 +268,7 @@ export default function Skills() {
               <h2 className="text-2xl font-semibold text-blue-400 mb-4">
                 {skillSections[selectedTab].title}
               </h2>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 pl-2">
-                {skillSections[selectedTab].items.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
+              {renderItems(skillSections[selectedTab].items)}
             </div>
           </>
         )}

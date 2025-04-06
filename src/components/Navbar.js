@@ -10,8 +10,7 @@ export default function Navbar() {
           <Link href="/skills" className="hover:text-teal-400">Skills</Link>
           <Link href="/experience" className="hover:text-teal-400">Experience</Link>
           <Link href="/projects" className="hover:text-teal-400">Projects</Link>
-          <Link href="/education" className="hover:text-teal-400">Education</Link>
-          <Link href="/certifications" className="hover:text-teal-400">Certifications</Link>
+          <Link href="/qualifications" className="hover:text-teal-400">Qualifications</Link>
           <a
             href="/Rajnish Kumar Srivastava.pdf"
             download
